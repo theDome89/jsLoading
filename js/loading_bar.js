@@ -1,12 +1,30 @@
+jQuery(document).ready(function() {
+  var textArray = [
+  	'Die Welt wird erschaffen',
+    'Die Flüsse werden gefüllt',
+    'Die Bäume werden gepflanzt',
+    'Die Tiere werden auf die Welt gesetzt',
+    'Die Menschen werden erschaffen',
+    'Die Welt geht unter',
+    'Aber wir drucken trotzdem Ihr Bild!!!'
+  ];
+  
+  var spinner = new TextSpinner();
+  
+  spinner.show(textArray, 1);
+});
+
 const STATE_HIDDEN = 'hidden';
 const STATE_SHOWN = 'shown';
 
 class TextSpinner {
-	constructor() {
+  constructor() {
   	jQuery('body').append('<div data-container></div>');
     
   	this._state = STATE_HIDDEN;
-    this._element = jQuery('[data-container]');
+    	this._element = jQuery('[data-container]');
+    
+    	this._element.hide();
   }
   
   show(texts, mode) {
@@ -76,13 +94,15 @@ class TextSpinner {
   
   hide() {
   	if(this._state === STATE_HIDDEN) {
-    	return this;
-    }
+    		return this;
+    	}
     
-    this._element.removeClass().find('div').detach();
+    	this._element.hide();
     
-    this._state = STATE_HIDDEN;
+    	this._element.removeClass().find('div').detach();
     
- 		return this;
+    	this._state = STATE_HIDDEN;
+    
+ 	return this;
   }
 }
