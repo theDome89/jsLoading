@@ -2,15 +2,21 @@ const STATE_HIDDEN = 'hidden';
 const STATE_SHOWN = 'shown';
 
 class TextSpinner {
-  constructor() {
+
+	constructor() {
   	jQuery('body').append('<div data-container></div>');
     
   	this._state = STATE_HIDDEN;
-    	this._element = jQuery('[data-container]');
+    this._element = jQuery('[data-container]');
     
-    	this._element.hide();
+    this._element.hide();
   }
   
+  /**
+  * @param {String[]} texts
+  * @param {Number} mode
+  * @return {TextSpinner}
+  */
   show(texts, mode) {
   	if(this._state === STATE_SHOWN || texts.length === 0) {
     	return this;
@@ -40,6 +46,10 @@ class TextSpinner {
     return this;
   }
   
+  /**
+  * @param {String[]} texts
+  * @return {TextSpinner}
+  */
   render(texts) {
   	var self = this;
     var amountOfTexts = texts.length;
@@ -53,18 +63,30 @@ class TextSpinner {
   	return this;
   }
   
+  /**
+  * @param {String[]} texts
+  * @return {TextSpinner}
+  */
   renderMode0(texts) {
   	this._element.addClass('loading-container-mode-0').append('<div class="loading"></div>');
     
   	return this.render(texts);
   }
   
+  /**
+  * @param {String[]} texts
+  * @return {TextSpinner}
+  */
   renderMode1(texts) {
   	this._element.addClass('loading-container-mode-1').append('<div class="loading"></div>');
     
   	return this.render(texts);
   }
   
+  /**
+  * @param {String[]} texts
+  * @return {TextSpinner}
+  */
   renderMode2(texts) {
   	this._element.addClass('loading-container-mode-2').append('<div class="loading">' +
       '<div class="dashing"><div></div></div>' +
@@ -76,17 +98,20 @@ class TextSpinner {
   	return this.render(texts);
   }
   
+  /**
+  * @return {TextSpinner}
+  */
   hide() {
   	if(this._state === STATE_HIDDEN) {
-    		return this;
-    	}
+    	return this;
+    }
     
-    	this._element.hide();
+    this._element.hide();
     
-    	this._element.removeClass().find('div').detach();
+    this._element.removeClass().find('div').detach();
     
-    	this._state = STATE_HIDDEN;
+    this._state = STATE_HIDDEN;
     
- 	return this;
+ 		return this;
   }
 }
