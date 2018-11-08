@@ -1,15 +1,16 @@
 const STATE_HIDDEN = 'hidden';
-const STATE_SHOWN = 'shown';
+const STATE_SHOWN  = 'shown';
 
 class TextSpinner {
 
 	constructor() {
 		jQuery('body').append('<div class="dimmer"><div data-container></div></div>');
 
-		this._state = STATE_HIDDEN;
-	    	this._element = jQuery('[data-container]');
+		this._state 	= STATE_HIDDEN;
+	    	this._dimmer 	= jQuery('.dimmer');
+	    	this._element   = this._dimmer.find('[data-container]');
 
-	    	this._element.hide();
+	    	this._dimmer.hide();
 	  }
   
 	  /**
@@ -22,7 +23,7 @@ class TextSpinner {
 			return this;
 	    	}
 
-	    	this._element.hide();
+	    	this._dimmer.hide();
 
 	    	switch(mode) {
 			case 0:
@@ -39,7 +40,7 @@ class TextSpinner {
 				break;
 	    	}
 
-	    	this._element.show();
+	    	this._dimmer.show();
 
 	    	this._state = STATE_SHOWN;
 
@@ -106,7 +107,7 @@ class TextSpinner {
 			return this;
 	    	}
 
-	    	this._element.hide();
+	    	this._dimmer.hide();
 
 	    	this._element.removeClass().find('div').detach();
 
