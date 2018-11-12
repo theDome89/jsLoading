@@ -3,26 +3,8 @@
 		<title>Fancy JS Loading Bar</title>
 		<meta charset="UTF-8">
     		<link type="text/css" rel="stylesheet" href="css/loading_bar.css" />
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        	<script language="javascript" type="text/javascript" src="js/loading_bar.js"></script>
+        	<script data-main="js/main" src="js/require.min.js"></script>
 	</head>
   <body>
-    	<script type="text/javascript">
-	      jQuery(document).ready(function() {
-		var textArray = [
-		  'Die Welt wird erschaffen',
-		  'Die Flüsse werden gefüllt',
-		  'Die Bäume werden gepflanzt',
-		  'Die Tiere werden auf die Welt gesetzt',
-		  'Die Menschen werden erschaffen',
-		  'Die Welt geht unter',
-		  'Aber wir drucken trotzdem Ihr Bild!!!'
-		];
-
-		var spinner = new TextSpinner();
-
-		spinner.show(textArray, 1);
-	      });
-	</script>
   </body>
 </html>
